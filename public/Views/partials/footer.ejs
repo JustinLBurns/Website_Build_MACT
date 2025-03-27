@@ -1,0 +1,51 @@
+<footer class="footer <%= page === 'contact' ? 'contact-footer' : '' %>">
+    <div class="container text-center">
+        <table class="footer-table">
+            <tr>
+                <td>
+                    <a href="https://www.facebook.com/justinlynnburns" target="_blank">
+                        <img src="/images/facebook.png" alt="Facebook" class="social-icon">
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.instagram.com/justinburns_art/" target="_blank">
+                        <img src="/images/insta.png" alt="Instagram" class="social-icon">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .footer-table {
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    }
+
+    /* Special footer styling just for the contact page */
+    .contact-footer {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        width: 100%;
+    }
+</style>
+
+
+

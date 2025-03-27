@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Justin Burns</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Font Contrail One -->
+    <link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Contrail One', sans-serif;
+            background-image: url('https://res.cloudinary.com/dcntnh737/image/upload/v1726781624/Screenshot_2024-09-19_at_4.32.10_PM_k984ro.png');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .content-box {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 10px;
+            min-width: 300px; /* Ensures they do not collapse */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container text-center p-4 mt-5">
+        
+        <!-- Profile Picture -->
+        <div class="photo">
+            <img src="https://res.cloudinary.com/dcntnh737/image/upload/v1726781772/1625517_854112491521_1886190814_n_eswqkm.jpg" 
+                 alt="Justin Burns" class="img-fluid rounded-circle">
+        </div>
+
+        <h1 class="mt-3">Justin Burns</h1>
+
+        <!-- Biography and About The Art Sections (Fixed Layout) -->
+        <div class="row mt-4">
+            <div class="col-md-6 content-box">
+                <h2>Biography</h2>
+                <p>
+                    Justin Burns is an artist, educator, and creative technology student whose work focuses on weathered and abandoned spaces...
+                </p>
+            </div>
+            <div class="col-md-6 content-box">
+                <h2>About The Art</h2>
+                <p>
+                    His paintings are inspired by the remnants of his family’s 100-year-old farm in Kopperl, TX, exploring the stories of the past...
+                </p>
+            </div>
+        </div>
+
+        <!-- Home Button (Fixed Navigation) -->
+        <div class="text-center mt-3">
+            <a href="/" class="btn btn-dark btn-lg">Home</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+

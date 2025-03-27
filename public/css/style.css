@@ -1,0 +1,140 @@
+/* General Body Styling */
+body {
+  background-image: url('https://res.cloudinary.com/dcntnh737/image/upload/v1726781624/Screenshot_2024-09-19_at_4.32.10_PM_k984ro.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keep image fixed while scrolling */
+  color: white; /* Ensure text is readable */
+  font-family: 'Contrail One', sans-serif; /* Apply the custom Google font */
+  min-height: 100vh; /* Ensure body takes up full viewport height */
+  padding-bottom: 20px; /* Adds space at the bottom */
+}
+
+/* Transparent Background for Project Cards Container */
+.custom-container {
+  background: rgba(0, 0, 0, 0.5); /* Dark grey with transparency */
+  padding: 30px;
+  border-radius: 10px;
+}
+
+/* Container styling for the project content */
+.container {
+  z-index: 2;
+}
+
+/* Add padding to the main content area */
+.container.mt-5 {
+  padding: 30px;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Fade-In Effect for the Cards */
+.fadein {
+  animation: fadein 1s ease-out;
+}
+
+@keyframes fadein {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Card Footer Styling */
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  text-align: center;
+}
+
+/* Button Styling */
+.btn-secondary, .btn-primary {
+  font-weight: bold;
+}
+
+/* Home Button Styling */
+.btn-home {
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Ensure the buttons are easily clickable */
+.btn-home:hover {
+  background-color: #444;
+}
+
+/* Adjust Card Image for Consistency */
+.card-img-top {
+  object-fit: cover;
+  height: 200px; /* Adjust based on preferred height */
+}
+
+/* Ensure Content Doesn't Overflow */
+.row {
+  margin-bottom: 20px;
+}
+
+/* Ensure the footer or last section takes up full space */
+footer {
+  min-height: 200px;
+}
+
+/* Ensures header is centered */
+h1.text-center {
+  margin-top: 50px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .container {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+
+  h1.text-center {
+      font-size: 2rem;
+  }
+}
+
+/* Custom Styling for Connect to Wallet Button */
+.btn-connect-wallet {
+  font-weight: bold;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-connect-wallet:hover {
+  background-color: red; /* Turns red when hovered */
+}
+
+/* Positioning the Connect to Wallet Button on the top right */
+.d-flex {
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.d-flex > div:last-child {
+  position: absolute;
+  right: 0;
+}

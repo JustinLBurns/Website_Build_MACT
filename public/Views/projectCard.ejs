@@ -1,0 +1,16 @@
+<div class="card m-2 h-100 fadein">
+    <% if (image) { %>
+        <!-- Check if the image URL is an external URL or a local image in the Images folder -->
+        <img src="<%= image.startsWith('http') ? image : '/Images/' + image %>" 
+             class="card-img-top" 
+             alt="An image of the <%= name %> project">
+    <% } else { %>
+        <!-- Default image if no image is provided -->
+        <img src="/Images/default.jpg" class="card-img-top" alt="Default Project Image">
+    <% } %>
+
+    <div class="card-footer">
+        <a href="/project/<%= ident %>" class="btn btn-primary">Project Profile</a>
+    </div>
+</div>
+
