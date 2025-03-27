@@ -1,1 +1,6 @@
 .env
+node_modules
+.gitignore
+.vscode
+scratch.tx
+/scratch
