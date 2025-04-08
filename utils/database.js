@@ -16,17 +16,9 @@ export async function connect() {
     process.env.MYSQL_PORT +
     "/" +
     process.env.MYSQL_DATABASE;
+
   pool = mysql
-    .createPool(
-      cString //digital ocean sql server
-      // {
-      //   // obj - localhost sql
-      //   host: process.env.MYSQL_HOST,
-      //   user: process.env.MYSQL_USER,
-      //   password: process.env.MYSQL_PASSWORD,
-      //   database: process.env.MYSQL_DATABASE,
-      // }
-    )
+    .createPool(cString)
     .promise();
 }
 
@@ -36,6 +28,14 @@ export async function getAllProjects() {
   }
   const [rows] = await pool.query(`SELECT * FROM projects;`);
   return rows;
+}
+
+export async function getProjectById(id) {
+  if (!pool) {
+    await connect(); // Ensure connection is established
+  }
+  const [rows] = await pool.query(`SELECT * FROM projects WHERE id = ?;`, [id]);
+  return rows[0]; // Return single project object
 }
 
 

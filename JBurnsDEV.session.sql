@@ -1,1 +1,1 @@
-select * from projects;
+SELECT id, project_name FROM projects;

@@ -16,34 +16,71 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Routes
+// ================== ROUTES ==================
+
+// Home
 app.get("/", (req, res) => {
     res.render("index", { page: "home" });
 });
 
+// About
 app.get("/about", (req, res) => {
     res.render("about", { page: "about" });
 });
 
+// Projects list
 app.get('/projects', async (req, res, next) => {
     try {
         await db.connect();
-        const projects = await db.getAllProjects(); // Fetch projects from DB
-        console.log("Fetched Projects:", projects); // Debugging
+        const projects = await db.getAllProjects();
+        console.log("✅ All Projects:", projects.map(p => p.id)); // Log all project IDs
         res.render("projects", { data: projects }); 
     } catch (error) {
         next(error); 
     }
 });
 
+// ✅ Individual project profile page
+app.get("/project/:id", async (req, res, next) => {
+    const projectId = req.params.id;
+    console.log("🔎 Project ID requested:", projectId);
+
+    try {
+        await db.connect();
+        const project = await db.getProjectById(projectId);
+        console.log("✅ Project fetched:", project);
+
+        if (project) {
+            res.render("project-profile", { project });
+        } else {
+            res.status(404).send("Project not found");
+        }
+    } catch (error) {
+        console.error("❌ Error in /project/:id route:", error);
+        next(error);
+    }
+});
+
+// ✅ Test route to confirm EJS view renders correctly
+app.get("/test-profile", (req, res) => {
+    const dummyProject = {
+        project_name: "Test Project",
+        img_url: "/images/default.jpg",
+        description: "Just a placeholder project to test layout.",
+        price: 42.00
+    };
+    res.render("project-profile", { project: dummyProject });
+});
+
+// Contact
 app.get("/contact", (req, res) => {
     res.render("contact", { page: "contact" });
 });
 
-// Email Sending Route
+// Email route
 app.post("/mail", async (req, res) => {
-    console.log("Mail button clicked");
-    console.log("Form Data:", req.body);
+    console.log("📨 Mail button clicked");
+    console.log("📄 Form Data:", req.body);
 
     const { name, email, subject, message } = req.body;
 
@@ -72,12 +109,12 @@ app.post("/mail", async (req, res) => {
         await transporter.sendMail(mailOptions);
         res.json({ message: "Email sent successfully!" });
     } catch (error) {
-        console.error("Error sending email:", error);
+        console.error("❌ Error sending email:", error);
         res.status(500).json({ error: "Failed to send email." });
     }
 });
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`🚀 Server running on http://localhost:${port}`);
 });
