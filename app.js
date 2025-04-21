@@ -28,6 +28,11 @@ app.get("/about", (req, res) => {
     res.render("about", { page: "about" });
 });
 
+// ✅ New: Films Page
+app.get("/films", (req, res) => {
+    res.render("films", { page: "films" });
+});
+
 // Projects list
 app.get('/projects', async (req, res, next) => {
     try {
