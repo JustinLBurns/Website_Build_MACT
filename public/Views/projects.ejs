@@ -24,9 +24,9 @@
         <a href="/" class="btn btn-secondary">Home</a>
     </div>
 
-    <!-- Connect Wallet Button -->
-    <div class="container mt-3">
-        <a href="#" class="btn btn-connect-wallet">Connect Wallet</a>
+    <!-- ✅ Connect Wallet Button -->
+    <div class="container mt-3 text-center">
+        <button id="connectWallet" class="btn btn-dark">Connect Wallet</button>
     </div>
 
     <!-- Main Content with Transparent Container -->
@@ -57,13 +57,35 @@
 
     <!-- Optional JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Abstract Background Animation Script -->
     <script src="/js/abstractmove.js"></script>
+
+    <!-- ✅ Wallet Connect Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const connectButton = document.getElementById("connectWallet");
+
+            if (connectButton) {
+                connectButton.addEventListener("click", async () => {
+                    if (typeof window.ethereum !== "undefined") {
+                        try {
+                            const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+                            const address = accounts[0];
+                            console.log("🟢 Wallet Connected:", address);
+
+                            connectButton.textContent = "Connected ✅";
+                            connectButton.classList.remove("btn-dark");
+                            connectButton.classList.add("btn-success");
+                        } catch (err) {
+                            console.error("🛑 Wallet connection failed:", err);
+                            alert("Wallet connection was cancelled or failed.");
+                        }
+                    } else {
+                        alert("MetaMask is not installed. Please install it to use wallet features.");
+                    }
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
-
-
-
-
-
