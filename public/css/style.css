@@ -99,4 +99,19 @@ footer img.social-icon:hover {
   .content-box {
     width: 100%;
   }
+  /* ===============================
+   Film Thumbnails
+================================= */
+.film-thumbnail {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.film-thumbnail:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+}
+
