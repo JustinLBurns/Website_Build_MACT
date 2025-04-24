@@ -1,2 +1,2 @@
-SELECT * FROM projects;
+SELECT img_url FROM projects;
 
