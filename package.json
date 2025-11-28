@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/JustinLBurns/JBurns_MACT6340_Project#readme",
   "dependencies": {
-    "body-parser": "^2.2.0",
+    "body-parser": "^2.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
